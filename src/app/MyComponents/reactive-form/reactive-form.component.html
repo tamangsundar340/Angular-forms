@@ -1,0 +1,21 @@
+<div class="container p-4">
+    <h3>Reactive Form</h3>
+    <br>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" formControlName="email" id="email" email required class="form-control">
+          <small *ngIf="reactiveForm.get('email').invalid && reactiveForm.get('email').touched"  class="text-danger">
+              Email is not valid
+            </small>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" formControlName="password" id="password" required class="form-control">
+          <small *ngIf="reactiveForm.get('password').invalid && reactiveForm.get('password').touched" class="text-danger">
+              password is not valid
+            </small>
+        </div>
+        <button [disabled]="reactiveForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>

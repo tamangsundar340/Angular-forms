@@ -1,0 +1,17 @@
+<div class="container p-4">
+    <h3>Template Drive Form</h3>
+    <br>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" ngModel name="email" #email="ngModel" id="email" email required class="form-control">
+          <small *ngIf="email.invalid && email.touched"  class="text-danger">Email is not valid</small>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" ngModel name="password" #password="ngModel" id="password" required class="form-control">
+          <small *ngIf="password.invalid && password.touched" class="text-danger">password is not valid</small>
+        </div>
+        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
